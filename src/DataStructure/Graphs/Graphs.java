@@ -55,7 +55,6 @@ public class Graphs {
         Stack<Integer> stack = new Stack<>();
 
         stack.push(s);
-
         while(!(stack.isEmpty())) {
             int u = stack.pop();
 
@@ -71,14 +70,18 @@ public class Graphs {
         }
     }
     public static void main(String[] args) {
-        Graphs graph = new Graphs(5);
-        graph.addEdge(0, 1);
+        Graphs graph = new Graphs(6);
         graph.addEdge(1, 2);
-        graph.addEdge(2, 3);
-        graph.addEdge(3, 0);
-        graph.addEdge(2,4);
-
-        graph.dfs(0);
+        graph.addEdge(2, 1);
+        graph.addEdge(2, 5);
+        graph.addEdge(5, 2);
+        graph.addEdge(1,3);
+        graph.addEdge(3,1);
+        graph.addEdge(3,4);
+        graph.addEdge(4,3);
+        graph.addEdge(4,5);
+        graph.addEdge(5,4);
+        graph.dfs(1);
 
     }
 }

@@ -18,7 +18,30 @@ public class Squaring_sortedArray {
 
     }
 
-    public static int[] withoutSortingAlgo(int[] nums) {
+    public static int[] ifArrayIsSorted(int[] nums) {
+        int[] result = new int[nums.length];
+        int left = 0;
+        int right = nums.length - 1;
+
+        int leftsq, rightsq;
+
+        int highestSq = nums.length - 1;
+        while (left <= right) {
+            leftsq = nums[left] * nums[left];
+            rightsq = nums[right] * nums[right];
+
+            if (leftsq > rightsq) {
+                result[highestSq--] = leftsq;
+                left++;
+            } else {
+                result[highestSq--] = rightsq;
+                right--;
+
+            }
+        }
+        return result;
+    }
+    public static int[] isArrayIsNotSorted(int[] nums) {
 
         int[] result = new int[nums.length];
         int left=0;
@@ -45,7 +68,7 @@ public class Squaring_sortedArray {
 
         int[] num = {-4,-1,0,3,1};
 
-        System.out.println(Arrays.toString(withoutSortingAlgo(num)));
+        System.out.println(Arrays.toString(isArrayIsNotSorted(num)));
 
     }
 }
