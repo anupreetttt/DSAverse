@@ -24,28 +24,27 @@ public class PermutationsInString {
 
             checkMap.put(s2.charAt(end), checkMap.getOrDefault(s2.charAt(end), 0) + 1);
 
-            if(end - start + 1 == k) {
+            if (end - start + 1 == k) {
 
                 if (checkMap.equals(map)) {
                     return true;
                 }
-                if (checkMap.containsKey(s2.charAt(start))) {
-                    int count = checkMap.get(s2.charAt(start));
-                    if (count > 1) {
-                        checkMap.put(s2.charAt(start), count - 1);
-                    } else {
-                        checkMap.remove(s2.charAt(start));
-                    }
+                // char startChar = s2.charAt(start);
+                // int count = checkMap.get(s2.charAt(start));
+                if (checkMap.get(s2.charAt(start)) > 1) {
+                    checkMap.put(s2.charAt(start), checkMap.get(s2.charAt(start)) - 1);
+                } else {
+                    checkMap.remove(s2.charAt(start));
                 }
+
                 start++;
             }
         }
-        System.out.println(checkMap);
         return false;
     }
     public static void main(String[] args) {
 
-        String s1 = "abcdxabcde", s2 = "abcdeabcdx";
+        String s1 = "ab", s2 = "eidbaooo";
 
         System.out.println(checkInclusion(s1, s2));
     }

@@ -104,9 +104,6 @@ public class LL {
 
     public void helper(Node head, int val, int index, int i) {
 
-
-
-
         if(index == 1){
             Node newNode = new Node(val);
             newNode.next = head.next;

@@ -33,7 +33,7 @@ public class MinimumSized_SubArray {
                 sum -= nums[left++];
             }
         }
-        return minLength;
+        return minLength == Integer.MAX_VALUE ? 0 : minLength;
     }
     public static void main(String[] args) {
 

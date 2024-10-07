@@ -32,16 +32,15 @@ public class findAllAnagramInAString {
                 if (checkMap.equals(map)) {
                     list.add(start);
                 }
-                char startChar = s.charAt(start);
-                if (checkMap.containsKey(startChar)) {
-                    int count = checkMap.get(startChar);
+//                if (checkMap.containsKey(startChar)) {
+                    int count = checkMap.get(s.charAt(start));
                     if (count > 1) {
-                        checkMap.put(startChar, count - 1);
+                        checkMap.put( s.charAt(start++), count - 1);
                     } else {
-                        checkMap.remove(startChar);
+                        checkMap.remove( s.charAt(start++));
                     }
-                }
-                start++;
+//                }
+//                start++;
             }
         }
         return list;
@@ -49,7 +48,7 @@ public class findAllAnagramInAString {
     public static void main(String[] args) {
 
         String s = "cbaebabacd";
-        String p = "cba";
+        String p = "abc";
 
         System.out.println(findAnagrams(s, p));
     }

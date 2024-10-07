@@ -36,10 +36,36 @@ public class MaxSubArray {
         }
         return maxSum;
     }
+    public static int maxSubArrayOfSizeKOptimized(int[] nums, int k) {
+
+        int maxSum = Integer.MAX_VALUE;
+        int sum = 0;
+
+        for (int i = 0; i < k; i++) {
+            sum += nums[i];
+        }
+        maxSum = sum;
+
+        int start = 0;
+        int end = k;
+
+        while (end < nums.length) {
+
+            sum -= nums[start];
+            start++;
+
+            sum += nums[end];
+            end++;
+
+            maxSum = Math.max(sum, maxSum);
+        }
+
+        return maxSum;
+    }
     public static void main(String[] args) {
 
-        int[] nums = {2, 1, 5, 1, 3, 2};
+        int[] nums = {2, 1, 5, 1, 3, 123};
 
-        System.out.println(maxSubArrayOfSizeK(nums, 3));
+        System.out.println(maxSubArrayOfSizeKOptimized(nums, 3));
     }
 }
