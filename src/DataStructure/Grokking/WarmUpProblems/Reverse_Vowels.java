@@ -4,7 +4,7 @@ public class Reverse_Vowels {
 
     public static String reverseVowel(String s) {
 
-        char[] chars = s.toLowerCase().toCharArray();
+        char[] chars = s.toCharArray();
         int p1 = 0;
         int p2 = s.length() - 1;
 
@@ -28,11 +28,11 @@ public class Reverse_Vowels {
 
     public static boolean isVowel(char a) {
 
-        return a == 'a' || a == 'e' || a == 'i' || a == 'o' || a == 'u';
+        return a == 'a' || a == 'A' || a == 'e' || a == 'E' || a == 'i' || a =='I' || a == 'o' || a == 'O' || a == 'u' || a == 'U';
     }
     public static void main(String[] args) {
 
-        String s = "hello";
+        String s = "IceCreAm";
 
         System.out.println(reverseVowel(s));
     }

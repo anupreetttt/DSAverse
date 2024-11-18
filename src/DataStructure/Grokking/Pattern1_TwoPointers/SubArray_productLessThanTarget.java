@@ -14,7 +14,29 @@ public class SubArray_productLessThanTarget {
         }
         return count;
     }
+    public int numSubarrayProductLessThanK(int[] nums, int k) {
+        if(k <= 1) {
+            return 0;
+        }
 
+        int start = 0;
+        int end = 0;
+        long product = 1;
+        int count = 0;
+
+        while(end < nums.length) {
+
+            product = product * nums[end];
+
+            while(product >= k) {
+                product = product/nums[start];
+                start++;
+            }
+            count = count + end - start + 1;
+            end++;
+        }
+        return count;
+    }
     public static void main(String[] args) {
 
         int[] nums = {1,1,1};
